@@ -28,7 +28,7 @@ function GetStartedScreen({ navigation }) {
          <Modal animationType='slide' visible={modalVisible}>
             <TouchableOpacity onPress={modalPressHandler} style={styles.flex}>
                <Image
-                  source={require('../assets/get-started-car.jpg')}
+                  source={require('../assets/get-started-car.webp')}
                   resizeMode='stretch'
                   style={styles.backgroundImage}
                />
@@ -44,7 +44,7 @@ function GetStartedScreen({ navigation }) {
          </Modal>
          <SafeAreaView style={styles.container}>
             <Image
-               source={require('../assets/white-car-get-started.png')}
+               source={require('../assets/white-car-get-started.webp')}
                style={styles.carImage}
                resizeMode='contain'
             />

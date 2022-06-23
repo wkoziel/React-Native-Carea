@@ -48,7 +48,7 @@ function LoginTypesScreen({ navigation }) {
       <SafeAreaView style={styles.container}>
          <GoBackPanel onPress={goBackPressHandler} />
          <Image
-            source={require('../assets/car.png')}
+            source={require('../assets/car.webp')}
             resizeMode='contain'
             style={styles.carImage}
          />

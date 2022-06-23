@@ -11,6 +11,7 @@ function TextInput({
    iconSize = 22,
    iconColor = 'gray',
    password = false,
+   type = 'none',
 }) {
    const getIcon = () => {
       if (icon === 'email')
@@ -25,10 +26,11 @@ function TextInput({
          {getIcon()}
          <TI
             value={value}
-            onChange={onChange}
+            onChangeText={onChange}
             placeholder={placeholder}
             style={styles.input}
             secureTextEntry={password}
+            textContentType={type}
          />
       </View>
    );
