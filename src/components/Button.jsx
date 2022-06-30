@@ -1,5 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native';
+import {
+   StyleSheet,
+   Text,
+   TouchableHighlight,
+   TouchableNativeFeedback,
+   View,
+} from 'react-native';
 
 function Button({
    label = '',
@@ -20,7 +26,7 @@ const styles = StyleSheet.create({
    primaryButton: {
       backgroundColor: 'black',
       width: '90%',
-      height: 60,
+      height: 55,
       borderRadius: 100,
       alignItems: 'center',
       justifyContent: 'center',

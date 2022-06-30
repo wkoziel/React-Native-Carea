@@ -4,6 +4,7 @@ const routes = {
    loginTypes: 'loginTypes',
    signUp: 'signUp',
    signIn: 'signIn',
+   completeProfile: 'completeProfile',
 };
 
 export default routes;

@@ -13,6 +13,7 @@ import routes from '../routes';
 import Button from '../components/Button';
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { registerUser } from '../auth';
 
 const options = [
    {
@@ -33,6 +34,13 @@ function SignUpScreen({ navigation }) {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const [isCheckboxSelected, setIsCheckboxSelected] = useState(false);
+
+   const signUpPressHandler = () => {
+      if (email && password) {
+         registerUser(email, password);
+         navigation.navigate(routes.signIn);
+      }
+   };
 
    const goBackPressHandler = () => {
       navigation.navigate(routes.loginTypes);
@@ -60,6 +68,7 @@ function SignUpScreen({ navigation }) {
             onChange={(text) => setEmail(text)}
             icon='email'
             type='emailAddress'
+            iconLeft
          />
          <TextInput
             placeholder='Password'
@@ -67,6 +76,7 @@ function SignUpScreen({ navigation }) {
             onChange={(text) => setPassword(text)}
             icon='lock'
             password
+            iconLeft
          />
          <View style={styles.checkboxContainer}>
             <TouchableWithoutFeedback onPress={checkboxPressHandler}>
@@ -79,11 +89,13 @@ function SignUpScreen({ navigation }) {
             </TouchableWithoutFeedback>
             <Text style={styles.checkboxText}>Remember me</Text>
          </View>
-         <Button label='Sign up' primary />
+         <Button label='Sign up' onPress={signUpPressHandler} primary />
          <Text style={styles.divideText}>or continue with</Text>
          <View style={styles.buttonsContainer}>
-            {options.map((option) => (
-               <View style={styles.iconButton}>{option.icon}</View>
+            {options.map((option, index) => (
+               <View key={index} style={styles.iconButton}>
+                  {option.icon}
+               </View>
             ))}
          </View>
          <TouchableWithoutFeedback onPress={signInPressHandler}>
@@ -99,11 +111,11 @@ function SignUpScreen({ navigation }) {
 const styles = StyleSheet.create({
    container: { flex: 1, alignItems: 'center' },
    carImage: {
-      width: '50%',
-      height: 120,
+      width: '40%',
+      height: 100,
    },
    title: {
-      fontSize: 30,
+      fontSize: 27,
       fontWeight: '600',
       marginBottom: 20,
    },

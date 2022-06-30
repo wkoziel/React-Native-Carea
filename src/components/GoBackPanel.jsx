@@ -7,7 +7,7 @@ function GoBackPanel({ label = '', onPress = () => {} }) {
       <TouchableWithoutFeedback onPress={onPress}>
          <View style={styles.container}>
             <AntDesign name='arrowleft' size={24} color='black' />
-            <Text>{label}</Text>
+            <Text style={styles.text}>{label}</Text>
          </View>
       </TouchableWithoutFeedback>
    );
@@ -16,13 +16,19 @@ function GoBackPanel({ label = '', onPress = () => {} }) {
 const styles = StyleSheet.create({
    container: {
       marginTop: 10,
+      marginBottom: 10,
       height: 20,
       paddingHorizontal: 15,
       marginVertical: 5,
       width: '100%',
       background: 'red',
       alignItems: 'flex-start',
-      flexDirection: 'column',
+      flexDirection: 'row',
+   },
+   text: {
+      marginLeft: 10,
+      fontSize: 20,
+      fontWeight: '600',
    },
 });
 
