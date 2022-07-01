@@ -8,7 +8,6 @@ import { login } from '../redux/auth';
 export const loginUser = async (email, password) => {
    const users = (await readStorageData(storageKeys.users)) || [];
    if (users.find((u) => u.email === email && u.password === password)) {
-      login({ email, password });
       return true;
    }
    return false;

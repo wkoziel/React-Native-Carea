@@ -9,7 +9,7 @@ export const saveStorageData = async (key, newData) => {
       await AsyncStorage.setItem(key, JSON.stringify(newData));
       console.log('Data successfully saved');
    } catch (e) {
-      console.log('Failed to save the data to the storage');
+      alert('Error', 'Failed to save the data to the storage');
    }
 };
 
@@ -21,4 +21,8 @@ export const readStorageData = async (key) => {
    } catch (e) {
       console.log('Failed to fetch the input from storage');
    }
+};
+
+export const clearStorageData = async () => {
+   AsyncStorage.clear();
 };

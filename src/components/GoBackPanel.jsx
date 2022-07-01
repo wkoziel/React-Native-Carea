@@ -1,5 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import {
+   Platform,
+   StyleSheet,
+   Text,
+   TouchableWithoutFeedback,
+   View,
+} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 function GoBackPanel({ label = '', onPress = () => {} }) {
@@ -18,8 +24,8 @@ const styles = StyleSheet.create({
       marginTop: 10,
       marginBottom: 10,
       height: 20,
-      paddingHorizontal: 15,
       marginVertical: 5,
+      marginLeft: Platform.OS === 'ios' ? 20 : 0,
       width: '100%',
       background: 'red',
       alignItems: 'flex-start',

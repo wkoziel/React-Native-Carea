@@ -25,7 +25,11 @@ function GetStartedScreen({ navigation }) {
 
    return (
       <>
-         <Modal animationType='slide' visible={modalVisible}>
+         <Modal
+            animationType='slide'
+            visible={modalVisible}
+            style={styles.flex}
+         >
             <TouchableOpacity onPress={modalPressHandler} style={styles.flex}>
                <Image
                   source={require('../assets/get-started-car.webp')}
@@ -92,7 +96,6 @@ const styles = StyleSheet.create({
       color: 'white',
       fontSize: 70,
       fontWeight: '900',
-      marginVertical: 20,
    },
 
    descText: {
@@ -103,6 +106,7 @@ const styles = StyleSheet.create({
    container: {
       flex: 1,
       alignItems: 'center',
+      justifyContent: 'space-evenly',
    },
 
    carImage: {

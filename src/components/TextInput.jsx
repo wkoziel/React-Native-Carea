@@ -3,6 +3,7 @@ import { StyleSheet, TextInput as TI, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 function TextInput({
    value = null,
@@ -30,6 +31,14 @@ function TextInput({
          return <Entypo name='phone' size={iconSize} color={iconColor} />;
       if (icon === 'arrow-down')
          return <Feather name='arrow-down' size={iconSize} color={iconColor} />;
+      if (icon === 'search')
+         return (
+            <MaterialCommunityIcons
+               name='magnify'
+               size={iconSize}
+               color={iconColor}
+            />
+         );
    };
    return (
       <View style={styles.sectionContainer}>
@@ -51,7 +60,7 @@ function TextInput({
 const styles = StyleSheet.create({
    sectionContainer: {
       backgroundColor: '#10101014',
-      width: '85%',
+      width: '100%',
       paddingVertical: 18,
       paddingHorizontal: 20,
       marginVertical: 5,

@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
    Image,
+   KeyboardAvoidingView,
+   Platform,
    SafeAreaView,
    StyleSheet,
    Text,
@@ -15,21 +17,27 @@ import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { login } from '../redux/auth';
 import { useDispatch } from 'react-redux';
-import { readStorageData } from '../utils/storage';
-import { loginUser, registerUser } from '../auth';
+import { loginUser } from '../auth';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const options = [
    {
       icon: <Entypo name='facebook-with-circle' size={24} color='black' />,
-      onPress: () => {},
+      onPress: () => {
+         alert('Not implemented yet 😅');
+      },
    },
    {
       icon: <Entypo name='google--with-circle' size={24} color='black' />,
-      onPress: () => {},
+      onPress: () => {
+         alert('Not implemented yet 😅');
+      },
    },
    {
       icon: <AntDesign name='apple1' size={24} color='black' />,
-      onPress: () => {},
+      onPress: () => {
+         alert('Not implemented yet 😅');
+      },
    },
 ];
 
@@ -54,67 +62,82 @@ function SignUpScreen({ navigation }) {
    const signInPressHandler = async () => {
       if (email && password) {
          const response = await loginUser(email, password);
-         if (response) navigation.navigate(routes.home);
+         if (response) {
+            dispatch(login({ email, password }));
+            navigation.navigate(routes.home);
+         }
       }
    };
 
    return (
-      <SafeAreaView style={styles.container}>
-         <GoBackPanel onPress={goBackPressHandler} />
-         <Image
-            source={require('../assets/car.webp')}
-            resizeMode='contain'
-            style={styles.carImage}
-         />
-         <Text style={styles.title}>Login to Your Account</Text>
-         <TextInput
-            placeholder='Email'
-            value={email}
-            onChange={(text) => setEmail(text)}
-            icon='email'
-            type='emailAddress'
-            iconLeft
-         />
-         <TextInput
-            placeholder='Password'
-            value={password}
-            onChange={(text) => setPassword(text)}
-            icon='lock'
-            password
-            iconLeft
-         />
-         <View style={styles.checkboxContainer}>
-            <TouchableWithoutFeedback onPress={checkboxPressHandler}>
-               <View
-                  style={[
-                     styles.checkbox,
-                     isCheckboxSelected && styles.checkboxSelected,
-                  ]}
-               />
-            </TouchableWithoutFeedback>
-            <Text style={styles.checkboxText}>Remember me</Text>
-         </View>
-         <Button label='Sign in' onPress={signInPressHandler} primary />
-         <Text style={styles.divideText}>or continue with</Text>
-         <View style={styles.buttonsContainer}>
-            {options.map((option, index) => (
-               <View key={index} style={styles.iconButton}>
-                  {option.icon}
-               </View>
-            ))}
-         </View>
-         <TouchableWithoutFeedback onPress={signUpPressHandler}>
-            <View style={styles.signUpContainer}>
-               <Text style={styles.grayText}>Don't have an account?</Text>
-               <Text style={styles.boldText}>Sign up</Text>
+      <KeyboardAwareScrollView contentContainerStyle={{ flex: 1 }}>
+         <SafeAreaView style={styles.container}>
+            <GoBackPanel onPress={goBackPressHandler} />
+            <Image
+               source={require('../assets/car.webp')}
+               resizeMode='contain'
+               style={styles.carImage}
+            />
+            <Text style={styles.title}>Login to Your Account</Text>
+            <TextInput
+               placeholder='Email'
+               value={email}
+               onChange={(text) => setEmail(text)}
+               icon='email'
+               type='emailAddress'
+               iconLeft
+            />
+            <TextInput
+               placeholder='Password'
+               value={password}
+               onChange={(text) => setPassword(text)}
+               icon='lock'
+               password
+               iconLeft
+            />
+            <View style={styles.checkboxContainer}>
+               <TouchableWithoutFeedback onPress={checkboxPressHandler}>
+                  <View
+                     style={[
+                        styles.checkbox,
+                        isCheckboxSelected && styles.checkboxSelected,
+                     ]}
+                  />
+               </TouchableWithoutFeedback>
+               <Text style={styles.checkboxText}>Remember me</Text>
             </View>
-         </TouchableWithoutFeedback>
-      </SafeAreaView>
+            <Button label='Sign in' onPress={signInPressHandler} primary />
+
+            <Text style={styles.divideText}>or continue with</Text>
+            <View style={styles.buttonsContainer}>
+               {options.map((option, index) => (
+                  <TouchableWithoutFeedback
+                     onPress={option.onPress}
+                     key={index}
+                  >
+                     <View style={styles.iconButton}>{option.icon}</View>
+                  </TouchableWithoutFeedback>
+               ))}
+            </View>
+            <TouchableWithoutFeedback onPress={signUpPressHandler}>
+               <View style={styles.signUpContainer}>
+                  <Text style={styles.grayText}>Don't have an account?</Text>
+                  <Text style={styles.boldText}>Sign up</Text>
+               </View>
+            </TouchableWithoutFeedback>
+         </SafeAreaView>
+      </KeyboardAwareScrollView>
    );
 }
 
 const styles = StyleSheet.create({
-   container: { flex: 1, alignItems: 'center' },
+   container: {
+      flex: 1,
+      alignItems: 'center',
+      width: '90%',
+      justifyContent: 'space-evenly',
+      alignSelf: 'center',
+   },
    carImage: {
       width: '40%',
       height: 100,

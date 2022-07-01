@@ -17,17 +17,23 @@ const options = [
    {
       label: 'Continue with Facebook',
       icon: <Entypo name='facebook-with-circle' size={24} color='black' />,
-      onPress: () => {},
+      onPress: () => {
+         alert('Not implemented yet 😅');
+      },
    },
    {
       label: 'Continue with Google',
       icon: <Entypo name='google--with-circle' size={24} color='black' />,
-      onPress: () => {},
+      onPress: () => {
+         alert('Not implemented yet 😅');
+      },
    },
    {
       label: 'Continue with Apple',
       icon: <AntDesign name='apple1' size={24} color='black' />,
-      onPress: () => {},
+      onPress: () => {
+         alert('Not implemented yet 😅');
+      },
    },
 ];
 
@@ -53,12 +59,16 @@ function LoginTypesScreen({ navigation }) {
             style={styles.carImage}
          />
          <Text style={styles.title}>Let's you in</Text>
-         {options.map((o, i) => (
-            <View style={styles.optionButton} key={i}>
-               {o.icon}
-               <Text style={styles.label}>{o.label}</Text>
-            </View>
-         ))}
+         <View style={{ width: '90%', alignItems: 'center' }}>
+            {options.map((o, i) => (
+               <TouchableWithoutFeedback onPress={o.onPress} key={i}>
+                  <View style={styles.optionButton}>
+                     {o.icon}
+                     <Text style={styles.label}>{o.label}</Text>
+                  </View>
+               </TouchableWithoutFeedback>
+            ))}
+         </View>
          <Text>or</Text>
          <Button
             label='Sign in with password'
@@ -79,6 +89,8 @@ const styles = StyleSheet.create({
    container: {
       flex: 1,
       alignItems: 'center',
+      justifyContent: 'space-evenly',
+      paddingHorizontal: 20,
    },
    carImage: {
       width: '50%',
@@ -94,7 +106,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       borderWidth: 1,
       borderColor: 'lightgray',
-      width: '90%',
+      width: '100%',
       height: 60,
       alignItems: 'center',
       justifyContent: 'center',
