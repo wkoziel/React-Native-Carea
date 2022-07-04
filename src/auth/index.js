@@ -9,8 +9,10 @@ export const loginUser = async (email, password) => {
    const users = (await readStorageData(storageKeys.users)) || [];
    if (users.find((u) => u.email === email && u.password === password)) {
       return true;
+   } else {
+      alert("Email and password don't match");
+      return false;
    }
-   return false;
 };
 
 export const registerUser = async (email, password) => {
