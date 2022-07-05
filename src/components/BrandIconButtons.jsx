@@ -13,32 +13,32 @@ const options = [
       onPress: () => {},
    },
    {
-      label: 'Tesla',
+      label: 'Marcedes',
       icon: <Fontisto name='tesla' size={iconSize} color='black' />,
       onPress: () => {},
    },
    {
-      label: 'Tesla',
+      label: 'BMW',
       icon: <Fontisto name='tesla' size={iconSize} color='black' />,
       onPress: () => {},
    },
    {
-      label: 'Tesla',
+      label: 'Toyota',
       icon: <Fontisto name='tesla' size={iconSize} color='black' />,
       onPress: () => {},
    },
    {
-      label: 'Tesla',
+      label: 'Volvo',
       icon: <Fontisto name='tesla' size={iconSize} color='black' />,
       onPress: () => {},
    },
    {
-      label: 'Tesla',
+      label: 'Bugatti',
       icon: <Fontisto name='tesla' size={iconSize} color='black' />,
       onPress: () => {},
    },
    {
-      label: 'Tesla',
+      label: 'Honda',
       icon: <Fontisto name='tesla' size={iconSize} color='black' />,
       onPress: () => {},
    },
@@ -80,7 +80,9 @@ const styles = StyleSheet.create({
 
    buttonContainer: {
       alignItems: 'center',
-      margin: 10,
+      justifyContent: 'space-between',
+      marginVertical: 10,
+      marginHorizontal: 9,
    },
 
    iconContainer: {

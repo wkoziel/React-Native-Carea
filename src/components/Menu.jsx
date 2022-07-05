@@ -43,7 +43,7 @@ function Menu({ navigate, active }) {
 
 const styles = StyleSheet.create({
    container: {
-      height: 70,
+      height: 60,
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',

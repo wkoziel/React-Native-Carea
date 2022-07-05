@@ -10,6 +10,7 @@ import {
 import { useSelector } from 'react-redux';
 import BrandChips from '../components/BrandChips';
 import BrandIconButtons from '../components/BrandIconButtons';
+import CarCardGrid from '../components/CarCardGrid';
 import DashboardTopBar from '../components/DashboardTopBar';
 import Loader from '../components/Loader';
 import Menu from '../components/Menu';
@@ -60,6 +61,7 @@ function HomeScreen({ navigation }) {
                   <BrandIconButtons />
                   <Section label='Top Deals' />
                   <BrandChips />
+                  <CarCardGrid />
                </ScrollView>
                <Menu navigate={navigation.navigate} active={0} />
             </>
@@ -71,6 +73,7 @@ function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
    marginTop: {
       marginTop: 20,
+      flex: 1,
    },
 });
 
