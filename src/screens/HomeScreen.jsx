@@ -32,9 +32,7 @@ function HomeScreen({ navigation }) {
          else {
             setUserProfile(data);
             setIsLoading(false);
-            console.log('====================================');
-            console.log('userProfile', data);
-            console.log('====================================');
+            console.log('userProfile =>', data);
          }
       };
       loadData();
@@ -50,18 +48,23 @@ function HomeScreen({ navigation }) {
                   contentContainerStyle={{ alignItems: 'center' }}
                >
                   <DashboardTopBar profile={userProfile} />
-                  <TextInput placeholder='Search' icon='search' iconLeft />
+                  <TextInput
+                     placeholder='Search'
+                     icon='search'
+                     iconLeft
+                     iconSize={25}
+                  />
                   <Section label='Special Offers' />
                   <SpecialOfferCard
                      title='Week deals'
                      text='Get a new car discount, only valid  this week'
                      percentage={20}
-                     image={require('../assets/bmw-image.png')}
+                     image={require('../assets/rangerover.png')}
                   />
                   <BrandIconButtons />
                   <Section label='Top Deals' />
                   <BrandChips />
-                  <CarCardGrid />
+                  <CarCardGrid navigation={navigation} />
                </ScrollView>
                <Menu navigate={navigation.navigate} active={0} />
             </>

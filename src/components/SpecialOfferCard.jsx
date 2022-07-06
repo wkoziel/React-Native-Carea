@@ -1,18 +1,32 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+   Image,
+   StyleSheet,
+   Text,
+   TouchableWithoutFeedback,
+   View,
+} from 'react-native';
 
 function SpecialOfferCard({ percentage, title, text, image }) {
    return (
-      <View style={styles.container}>
-         <View style={{ flexDirection: 'row' }}>
-            <View style={styles.textContainer}>
-               <Text style={styles.percentage}>{percentage}%</Text>
-               <Text style={styles.title}>{title}</Text>
-               <Text style={styles.text}>{text}</Text>
+      <TouchableWithoutFeedback>
+         <View style={styles.container}>
+            <View style={{ flexDirection: 'row' }}>
+               <View style={styles.textContainer}>
+                  <Text style={styles.percentage}>{percentage}%</Text>
+                  <Text style={styles.title}>{title}</Text>
+                  <Text style={styles.text}>{text}</Text>
+               </View>
+               <View style={styles.imageContainer}>
+                  <Image
+                     style={styles.image}
+                     source={image}
+                     resizeMode='center'
+                  />
+               </View>
             </View>
-            <Image style={styles.image} source={image} resizeMode='center' />
          </View>
-      </View>
+      </TouchableWithoutFeedback>
    );
 }
 
@@ -46,11 +60,15 @@ const styles = StyleSheet.create({
       fontSize: 12,
    },
 
-   image: {
-      height: 110,
+   imageContainer: {
       width: '60%',
-      marginLeft: 5,
+   },
+
+   image: {
+      height: 130,
+      top: 10,
       alignSelf: 'center',
+      position: 'absolute',
    },
 });
 

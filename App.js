@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import store from './src/redux';
 import CompleteProfileScreen from './src/screens/CompleteProfileScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import CarDetailsScreen from './src/screens/CarDetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,8 +39,11 @@ export default function App() {
                   component={CompleteProfileScreen}
                />
                <Stack.Screen name={routes.home} component={HomeScreen} />
+               <Stack.Screen
+                  name={routes.carDetails}
+                  component={CarDetailsScreen}
+               />
             </Stack.Navigator>
-            <Stack.Screen name={routes.home} />
          </NavigationContainer>
       </Provider>
    );

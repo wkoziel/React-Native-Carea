@@ -8,12 +8,15 @@ import {
 } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-function GoBackPanel({ label = '', onPress = () => {} }) {
+function GoBackPanel({ label = '', onPress = () => {}, buttons }) {
    return (
       <TouchableWithoutFeedback onPress={onPress}>
          <View style={styles.container}>
-            <AntDesign name='arrowleft' size={24} color='black' />
-            <Text style={styles.text}>{label}</Text>
+            <View>
+               <AntDesign name='arrowleft' size={24} color='black' />
+               <Text style={styles.text}>{label}</Text>
+            </View>
+            <View style={{ alignSelf: 'flex-end' }}>{buttons}</View>
          </View>
       </TouchableWithoutFeedback>
    );
@@ -21,14 +24,15 @@ function GoBackPanel({ label = '', onPress = () => {} }) {
 
 const styles = StyleSheet.create({
    container: {
-      marginTop: 10,
+      marginTop: 20,
       marginBottom: 10,
       height: 20,
       marginVertical: 5,
       marginLeft: Platform.OS === 'ios' ? 20 : 0,
       width: '100%',
       background: 'red',
-      alignItems: 'flex-start',
+      alignItems: 'center',
+      justifyContent: 'space-between',
       flexDirection: 'row',
    },
    text: {

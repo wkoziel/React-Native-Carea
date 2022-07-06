@@ -1,59 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
-
-const iconSize = 30;
-
-const options = [
-   {
-      label: 'Tesla',
-      icon: <Fontisto name='tesla' size={iconSize} color='black' />,
-      onPress: () => {},
-   },
-   {
-      label: 'Marcedes',
-      icon: <Fontisto name='tesla' size={iconSize} color='black' />,
-      onPress: () => {},
-   },
-   {
-      label: 'BMW',
-      icon: <Fontisto name='tesla' size={iconSize} color='black' />,
-      onPress: () => {},
-   },
-   {
-      label: 'Toyota',
-      icon: <Fontisto name='tesla' size={iconSize} color='black' />,
-      onPress: () => {},
-   },
-   {
-      label: 'Volvo',
-      icon: <Fontisto name='tesla' size={iconSize} color='black' />,
-      onPress: () => {},
-   },
-   {
-      label: 'Bugatti',
-      icon: <Fontisto name='tesla' size={iconSize} color='black' />,
-      onPress: () => {},
-   },
-   {
-      label: 'Honda',
-      icon: <Fontisto name='tesla' size={iconSize} color='black' />,
-      onPress: () => {},
-   },
-   {
-      label: 'More',
-      icon: (
-         <MaterialCommunityIcons
-            name='dots-horizontal-circle-outline'
-            size={iconSize}
-            color='black'
-         />
-      ),
-      onPress: () => {},
-   },
-];
+import options from '../constants/brandIcons';
 
 function BrandIconButtons(props) {
    return (
@@ -74,15 +22,17 @@ const styles = StyleSheet.create({
    container: {
       flexDirection: 'row',
       flexWrap: 'wrap',
-      padding: 20,
+      paddingVertical: 20,
       alignItems: 'center',
+      justifyContent: 'space-around',
    },
 
    buttonContainer: {
       alignItems: 'center',
       justifyContent: 'space-between',
       marginVertical: 10,
-      marginHorizontal: 9,
+      width: '25%',
+      // marginHorizontal: 9,
    },
 
    iconContainer: {

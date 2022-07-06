@@ -1,8 +1,15 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text } from 'react-native';
+import {
+   Image,
+   StyleSheet,
+   View,
+   Text,
+   TouchableWithoutFeedback,
+} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import routes from '../routes';
 
-function CarCard({ image, model, rating, type, price }) {
+function CarCard({ id, image, model, rating, type, price, navigation }) {
    return (
       <View style={styles.container}>
          <View style={styles.imageContainer}>
@@ -19,7 +26,11 @@ function CarCard({ image, model, rating, type, price }) {
             />
          </View>
          <View>
-            <Text style={styles.modelText}>{model}</Text>
+            <TouchableWithoutFeedback
+               onPress={() => navigation.navigate(routes.carDetails, { id })}
+            >
+               <Text style={styles.modelText}>{model}</Text>
+            </TouchableWithoutFeedback>
             <View style={styles.statsContainer}>
                <AntDesign name='star' size={20} color='black' />
                <Text style={styles.ratingText}>{rating}</Text>
