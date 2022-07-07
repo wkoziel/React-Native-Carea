@@ -1,4 +1,4 @@
-# React-Native-Carea
+# Carea
 > A mobile application imitating exclusive car rentals, created using the React Native and Expo CLI libraries.
 
 ## Table of Contents
