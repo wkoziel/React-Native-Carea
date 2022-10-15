@@ -7,7 +7,6 @@
 * [Features](#features)
 * [Setup](#setup)
 * [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
 <!-- * [License](#license) -->
@@ -50,10 +49,6 @@
 
 ## Project Status
 Project is: _no longer being worked on_ 
-
-
-## Room for Improvement
-WIP
 
 ## Acknowledgements
 This project was based on [Car Marketplace App UI Kit](https://www.figma.com/community/file/1119336453480982797) by [Sobakhul Munir Siroj](https://www.figma.com/@MunirSr).
